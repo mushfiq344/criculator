@@ -1,0 +1,13 @@
+create or replace  view view_batting
+as 
+select ID,
+sum(case when EXTRACT(YEAR FROM(Match_date)) ='1976' then Runs else 0 end)Y1976, 
+sum(case when EXTRACT(YEAR FROM(Match_date)) ='1977' then Runs else 0 end)Y1977  
+from BattingFigure group by ID;
+
+
+select * from view_batting;
+
+
+
+select player.ID,FirstName,LastName,Y1976,Y1977 from player join view_batting on player.ID=view_batting.ID;

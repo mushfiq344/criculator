@@ -1,0 +1,13 @@
+drop Table BattingFigure;
+create table BattingFigure(
+ID int,
+FirstName varchar2(10),
+LastName varchar2(10),
+Runs int default 0,
+Balls int default 0,
+Strike_Rate decimal(5,2) default 0,
+Out int default 0,
+Match_date date,
+Venue varchar2(10)
+);
+

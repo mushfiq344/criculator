@@ -1,0 +1,14 @@
+drop trigger ChangeBowlingStats;
+CREATE OR REPLACE TRIGGER ChangeBowlingStats
+AFTER INSERT
+ON BowlingFigure
+FOR EACH ROW
+BEGIN
+
+Update Bowling_stats_in_ODI set Matches=Matches+1 ,Runs = Runs+ :NEW.Runs,Wicket=:NEW.Wicket,Innings=Innings+1,Overs=Overs+:NEW.Overs  where ID =  :NEW.ID; 
+Update Bowling_stats_in_ODI set Five_wkt_hall=Five_wkt_hall+1  where ID =  :NEW.ID and :NEW.Wicket>=5 ; 
+Update Bowling_stats_in_ODI set  Average=Runs/Overs  where ID =  :NEW.ID;
+Update Bowling_stats_in_ODI set  Strike_Rate=Runs/Wicket  where ID =  :NEW.ID;
+END;
+/
+

@@ -1,0 +1,13 @@
+drop trigger Create_player;
+CREATE OR REPLACE TRIGGER Create_player
+AFTER INSERT
+ON Player
+FOR EACH ROW
+BEGIN
+INSERT INTO Batting_stats_in_ODI
+(ID,FirstName,LastName)VALUES(:NEW.ID,:NEW.FirstName,:NEW.LastName);
+
+INSERT INTO Bowling_stats_in_ODI
+(ID,FirstName,LastName)VALUES(:NEW.ID,:NEW.FirstName,:NEW.LastName);
+END;
+/

@@ -1,0 +1,20 @@
+
+
+set serveroutput on
+create or replace procedure see_Bowling_Ranking IS
+
+Cursor Stat_Rank IS select * from Bowling_stats_in_ODI order by Wicket desc;
+stat_record Stat_Rank%rowtype;
+BEGIN
+open Stat_Rank;
+loop
+fetch Stat_Rank into stat_record;
+
+dbms_output.put_line(stat_record.ID||'  '||stat_record.FirstName||'   '||stat_record.LastName||'   '||stat_record.Wicket);
+
+
+exit when  Stat_Rank%rowcount>2;
+end loop;
+close Stat_Rank;
+end;
+/

@@ -1,0 +1,8 @@
+
+set serveroutput on
+begin
+insert_Bowling(100,'Tamim','Iqbal',10,50,2,'05-APR-1976','MCG');
+insert_Bowling(101,'Mushfiq','Rahim',5,20,1,'05-APR-1977','Brisben');
+insert_Bowling(102,'Sakib','Hasan',6,20,3,'05-APR-1977','Lords');
+end;
+/

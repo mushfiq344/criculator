@@ -1,0 +1,13 @@
+drop table bowlingFigure cascade constraint;
+create table BowlingFigure(
+ID int,
+FirstName varchar2(10),
+LastName varchar2(10),
+Overs int,
+Runs int,
+Wicket int default 0,
+Average DECIMAL(5,2),
+Strike_Rate DECIMAL(5,2) ,
+Match_date date,
+Venue varchar2(10)
+);

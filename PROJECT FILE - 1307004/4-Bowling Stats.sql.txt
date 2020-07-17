@@ -1,0 +1,14 @@
+drop table Bowling_stats_in_ODI cascade constraint;
+create table Bowling_stats_in_ODI(
+ID int,
+FirstName varchar2(10),
+LastName varchar2(10),
+Matches int default 0,
+Runs int,
+Innings int default 0,
+Wicket int default 0,
+Overs int default 0,
+Average DECIMAL(5,2),
+Strike_Rate DECIMAL(5,2) ,
+Five_wkt_hall int default 0
+);

@@ -1,0 +1,23 @@
+drop table Player cascade constraint;
+drop sequence seq_player;
+create table Player(
+ ID   int,
+ LASTNAME                                           VARCHAR2(10),
+ FIRSTNAME                                          VARCHAR2(10),
+ DATE_OF_BIRTH                                      DATE,
+ COUNTRY                                            VARCHAR2(10),
+ BATTING                                            VARCHAR2(20),
+ BOWLING                                            VARCHAR2(20) default 'none'
+);
+alter table  Player add constraint pk_1 primary key(ID);
+drop sequence seq_player;
+CREATE SEQUENCE seq_player
+MINVALUE 100
+START WITH 100
+INCREMENT BY 1
+CACHE 10;
+
+
+
+
+

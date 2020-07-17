@@ -1,0 +1,16 @@
+drop table Batting_stats_in_ODI cascade constraint;
+create table Batting_stats_in_ODI(
+ID int,
+FirstName varchar2(10),
+LastName varchar2(10),
+Matches int default 0,
+Innings int default 0,
+Not_outs int default 0,
+Runs int default 0,
+Balls int default 0,
+Average DECIMAL(5,2),
+Strike_Rate DECIMAL(5,2) ,
+Hundreds int default 0,
+Fifty int default 0,
+Highest_score int default 0
+);

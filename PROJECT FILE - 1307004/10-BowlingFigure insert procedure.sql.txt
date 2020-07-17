@@ -1,0 +1,29 @@
+drop procedure insert_Bowling;
+set serveroutput on
+create or replace procedure insert_Bowling(ID1 int,FirstName1 player.FirstName%type,LastName1 player.LastName%type,Overs1 int,Runs1 int,Wicket1 int,Match_date1 date,Venue1 player.LastName%type) IS
+ID2 int;
+FirstName2 varchar2(10);
+LastName2 varchar2(10);
+StrikeRate2 number(5,2);
+Average2 number(5,2);
+begin
+
+select FirstName into FirstName2 from player where ID = ID1;
+select LastName into LastName2 from player where ID = ID1;
+
+
+if FirstName1 != FirstName2 or LastName1 != LastName2 then
+
+dbms_output.put_line(' ID or Name is wrong ! Try with Correct information, Thank you.');
+else 
+StrikeRate2:= Runs1/Wicket1;
+Average2:= Overs1/Runs1;
+
+
+insert into BowlingFigure(ID,FirstName,LastName,Overs ,Runs,Wicket,Average,Strike_Rate,Match_date,Venue)
+values(ID1,FirstName1,LastName1,Overs1,Runs1,Wicket1,StrikeRate2,Average2,Match_date1,Venue1);
+
+end if;
+
+end;
+/

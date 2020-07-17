@@ -1,0 +1,16 @@
+delete from BattingFigure;
+delete from BowlingFigure;
+delete from Batting_stats_in_ODI;
+delete from Bowling_stats_in_ODI;
+
+
+
+INSERT INTO Player (ID,FirstName,LastName,DATE_OF_BIRTH,COUNTRY,BATTING, BOWLING)
+VALUES (seq_player.nextval,'Tamim','Iqbal','20-Apr-1990','Bangladesh','RightHand','Left');
+
+INSERT INTO Player (ID,FirstName,LastName,DATE_OF_BIRTH,COUNTRY,BATTING, BOWLING)
+VALUES (seq_player.nextval,'Mushfiq','Rahim','20-Apr-1991','Bangladesh','RightHand','Left');
+
+INSERT INTO Player (ID,FirstName,LastName,DATE_OF_BIRTH,COUNTRY,BATTING, BOWLING)
+VALUES (seq_player.nextval,'Sakib','Hasan','20-Apr-1992','Bangladesh','RightHand','Left');
+

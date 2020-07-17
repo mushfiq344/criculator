@@ -1,0 +1,29 @@
+drop trigger ChangeBattingStats;
+CREATE OR REPLACE TRIGGER ChangeBattingStats
+AFTER INSERT
+ON BattingFigure
+FOR EACH ROW
+BEGIN
+
+
+
+
+
+Update Batting_stats_in_ODI set Matches=Matches+1 ,Runs = Runs+ :NEW.Runs,Innings=Innings+1,Balls=Balls+:NEW.Balls  where ID =  :NEW.ID; 
+Update Batting_stats_in_ODI set Fifty=Fifty+1  where ID =  :NEW.ID and :NEW.Runs>=50 ; 
+Update Batting_stats_in_ODI set Hundreds=Hundreds+1  where ID =  :NEW.ID and :NEW.Runs>=100 ; 
+Update Batting_stats_in_ODI set Highest_score=:NEW.Runs where ID =  :NEW.ID  and :NEW.Runs> Highest_score;
+Update Batting_stats_in_ODI set  Not_outs=Not_outs+1 where ID =  :NEW.ID  and :NEW.Out=0;
+
+
+Update Batting_stats_in_ODI set  Average=Runs/(Innings+1-Not_outs)  where ID =  :NEW.ID;
+Update Batting_stats_in_ODI set  Strike_Rate=Runs/Balls  where ID =  :NEW.ID;
+
+
+
+
+
+
+END;
+/
+
